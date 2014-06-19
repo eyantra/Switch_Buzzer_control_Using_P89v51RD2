@@ -1,0 +1,96 @@
+C51 COMPILER V8.08   MAIN                                                                  09/07/2010 18:23:45 PAGE 1   
+
+
+C51 COMPILER V8.08, COMPILATION OF MODULE MAIN
+OBJECT MODULE PLACED IN main.OBJ
+COMPILER INVOKED BY: C:\Keil\C51\BIN\C51.EXE main.c BROWSE DEBUG OBJECTEXTEND
+
+line level    source
+
+   1          /**************************************************************************************************
+   2                          Platform: Fire Bird V P89V51RD2
+   3                          Title: Switch Buzzer
+   4                          Author: E-Yantra Team, ERTS Lab, IIT Bombay.
+   5                          Compiled with: uVision3 V3.90; C Compiler: C51.Exe, V8.18
+   6          **************************************************************************************************/
+   7          
+   8          /********************************************************************************
+   9          
+  10             Copyright (c) 2010, ERTS Lab, IIT Bombay.                       -*- c -*-
+  11             All rights reserved.
+  12          
+  13             Redistribution and use in source and binary forms, with or without
+  14             modification, are permitted provided that the following conditions are met:
+  15          
+  16             * Redistributions of source code must retain the above copyright
+  17               notice, this list of conditions and the following disclaimer.
+  18          
+  19             * Redistributions in binary form must reproduce the above copyright
+  20               notice, this list of conditions and the following disclaimer in
+  21               the documentation and/or other materials provided with the
+  22               distribution.
+  23          
+  24             * Neither the name of the copyright holders nor the names of
+  25               contributors may be used to endorse or promote products derived
+  26               from this software without specific prior written permission.
+  27          
+  28             * Source code can be used for academic purpose. 
+  29                   For commercial use permission form the author needs to be taken.
+  30          
+  31            THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS"
+  32            AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE
+  33            IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE
+  34            ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT OWNER OR CONTRIBUTORS BE
+  35            LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR
+  36            CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF
+  37            SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS
+  38            INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN
+  39            CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE)
+  40            ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
+  41            POSSIBILITY OF SUCH DAMAGE. 
+  42          
+  43            Software released under Creative Commence cc by-nc-sa licence.
+  44            For legal information refer to: 
+  45            http://creativecommons.org/licenses/by-nc-sa/3.0/legalcode
+  46          
+  47          ********************************************************************************/
+  48          
+  49          #include<intrins.h>
+  50          #include"p89v51rx2.h"
+  51          
+  52          sbit buzzer=P2^7; //Buzzer connected to Port 2, Pin 7
+  53          sbit switch_press=P3^3; //Switch connected to Port3, Pin 3
+  54          
+  55          void main(void)
+C51 COMPILER V8.08   MAIN                                                                  09/07/2010 18:23:45 PAGE 2   
+
+  56          {
+  57   1       switch_press=1; //Initialize Switch Pin as Input
+  58   1       
+  59   1       while(1)
+  60   1       {
+  61   2              if(switch_press==0)
+  62   2              {
+  63   3                buzzer=0;     
+  64   3              }
+  65   2              else
+  66   2              {
+  67   3                buzzer=1;     
+  68   3              }        
+  69   2               
+  70   2       }
+  71   1      }
+
+
+MODULE INFORMATION:   STATIC OVERLAYABLE
+   CODE SIZE        =     13    ----
+   CONSTANT SIZE    =   ----    ----
+   XDATA SIZE       =   ----    ----
+   PDATA SIZE       =   ----    ----
+   DATA SIZE        =   ----    ----
+   IDATA SIZE       =   ----    ----
+   BIT SIZE         =   ----    ----
+END OF MODULE INFORMATION.
+
+
+C51 COMPILATION COMPLETE.  0 WARNING(S),  0 ERROR(S)
